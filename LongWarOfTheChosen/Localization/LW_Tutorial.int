@@ -6,14 +6,10 @@ CampaignStartBody="LWOTC is a complete overhaul to XCOM 2 WOTC that makes the ca
 [X2EventListener_Tutorial]
 DroneSightedTitle="New Enemy: Drone"
 DroneSightedBody="ADVENT Drones are robotic scouts with high detection range and crowd control weapons. They:<br/><br/><ul><li>have 10 innate Defense</li><li>can stun for 2 turns at melee range</li><li>can shoot a disorienting ray</li><br/>They are often found on rooftops, so beware!"
-EngineerSightedTitle="New Enemy: Engineer"
-EngineerSightedBody="Engineers are ADVENT's grenadier unit. Tier-1 versions can use flashbangs, tier 2 can use incendiary grenades, and tier 3 can use acid grenades.<br/><br/>Often part of \"rainbow\" pods, as they are colored red.
-SentrySightedTitle="New Enemy: Sentry"
-SentrySightedBody="Sentries are dangerous infantry units that can go on overwatch after shooting. They have good aim and do more damage than Troopers. They also have a higher detection radius than other ADVENT troops."
-GunnerSightedTitle="New Enemy: Gunner"
-GunnerSightedBody="Gunners carry heavy cannons that can do serious damage to XCOM units. You need to take them very seriously! They also have the ability to suppress both a single unit and units in a small area."
-RocketeerSightedTitle="New Enemy: Rocketeer"
-RocketeerSightedBody="Rocketeers are as scary as they sound. They can fire accurate rockets, destroying cover and doing significant damage to XCOM units. Fortunately, their area of effect is smaller than for our rockets."
+TrooperSightedTitle="New Enemy: ADVENT infantry"
+TrooperSightedBody="ADVENT follows a broad color designation for battlefield hybrid units. <br/><ul><li>Basic troopers sport black.</li><br/><ul><li>Fire support units dress in colder colors like blue or green. They typically are better shots and specialize in reaction fire.</li><br/><ul><li>Demolitions troopers wear warmer colors like red or orange, and deploy ordnance against tight formations.</li><br/><ul><li>Special Operations forces dress in grey, and excel at evading fire and closing the distance.</li><br/><ul><li>Defensive support units dress in white armor.</li>"
+ViperSightedTitle="New Enemy: Ophidians"
+ViperSightedBody="Vipers are fast, nimble units that disrupt XCOM formations. <br/><ul><li>Diamondback Vipers prefer to pluck soldiers out of cover and into the open, binding them.</li><br/><ul><li>Najas are smaller and skittish, so they shun direct combat, preferring to take potshots from afar.</li><br/><ul><li>Sidewinders have silver scales, and will aggressively flank enemies with their SMGs before scurrying away.</li>"
 HavenHighlightTitle="Review your haven"
 HavenHighlightBody="Havens are essential to your campaign as they are used to find missions in the region. In addition, you can only contact regions that are connected to an existing haven.<br/><br/>Click on the button shown on the left to open the Haven management screen."
 
