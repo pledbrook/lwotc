@@ -40,6 +40,7 @@ var UIButton JobHeaderButton;
 var UIButton PerksHeaderButton;
 var UIText LiaisonTitle;
 var UIButton LiaisonButton;
+var UIButton LiaisonLoadoutButton;
 var UIImage LiaisonImage;
 var UIText LiaisonName;
 
@@ -234,6 +235,16 @@ simulated function InitScreen(XComPlayerController InitController, UIMovie InitM
 	LiaisonName.bAnimateOnInit = false;
 	LiaisonName.InitText('',"");
 	LiaisonName.SetPosition(LiaisonTitle.X, NextY + LiaisonTitle.Height);
+
+	// Rai : Haven advisor loadout button.
+	LiaisonLoadoutButton = Spawn(class'UIButton', MainPanel);
+	LiaisonLoadoutButton.bAnimateOnInit = false;
+	LiaisonLoadoutButton.bIsNavigable = false;
+	LiaisonLoadoutButton.InitButton(, , OnLiaisonLoadoutClicked);
+	LiaisonLoadoutButton.SetText("Edit Loadout");
+	LiaisonLoadoutButton.SetHeight(30);
+	LiaisonLoadoutButton.SetPosition(811 , NextY + LiaisonTitle.Height);// As KDM mentioned below, the button does not seem to anchor to MainPanel, so have resorted to hard coding the values
+	LiaisonLoadoutButton.SetFontSize(24);
 
 	NextY += 81;
 
@@ -913,6 +924,45 @@ simulated function OnLiaisonClicked(UIButton theButton)
 		LiaisonScreen.onSelectedDelegate = OnPersonnelSelected;
 		LiaisonScreen.m_bRemoveWhenUnitSelected = true;
 		Movie.Stack.Push(LiaisonScreen);
+	}
+}
+
+// Rai - On Edit Loadout button click
+simulated function OnLiaisonLoadoutClicked(UIButton theButton)
+{
+	local TDialogueBoxData DialogData;
+	local XComGameState_LWOutpost Outpost;
+	local XComGameState_Unit	Liaison;
+	local XComHQPresentationLayer HQPres;
+
+	Outpost = XComGameState_LWOutpost(`XCOMHISTORY.GetGameStateForObjectID(OutpostRef.ObjectID));
+	Liaison = XComGameState_Unit(`XCOMHISTORY.GetGameStateForObjectID(CachedLiaison.ObjectID));
+
+	HQPres = `HQPRES;
+	if (!Outpost.CanLiaisonBeMoved())
+	{
+		DialogData.eType = eDialog_Normal;
+		DialogData.strTitle = m_strCannotChangeLiaisonTitle;
+		DialogData.strText = m_strCannotChangeLiaison;
+		DialogData.strAccept = class'UIDialogueBox'.default.m_strDefaultAcceptLabel;
+		Movie.Pres.UIRaiseDialog(DialogData);
+		return;
+	}
+
+	if (CachedLiaison.ObjectID != 0 && Liaison.IsSoldier())
+	{
+		// Check if we are calling from geoscape or avenger?
+		if (class'Utilities_LW'.static.IsOnStrategyMap())
+		{
+			// This assumes that we have a way to get to the resistance/outpost management screen, which will be handled in a separate pull request
+			`HQPRES.UIArmory_MainMenu(CachedLiaison);
+		}		
+		else
+		{
+			//Apparently, for this case, the haven and resitance management screens are still in the stack but appear blank, so need to figure this out
+			// For now, we just have to double right click to get dumped back to the barracks screen
+			`HQPRES.UIArmory_MainMenu(CachedLiaison);
+		}		
 	}
 }
 
