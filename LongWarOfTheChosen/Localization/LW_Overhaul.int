@@ -292,6 +292,8 @@ strTimeRemainingDaysAndHours="<XGParam:IntValue1>D, <XGParam:IntValue0>H"
 ; LWOTC Needs Translation
 strDarkEventExpiredTitle="Dark Event Expired"
 strDarkEventExpiredText="has expired"
+OpenResistanceManagementStr="OPEN RESISTANCE MANAGEMENT"
+OpenHavenManagementStr="OPEN HAVEN MANAGEMENT"
 ; End Translation
 
 [X2EventListener_Soldiers]

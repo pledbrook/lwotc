@@ -4,6 +4,8 @@ var localized string strTimeRemainingHoursOnly;
 var localized string strTimeRemainingDaysAndHours;
 var localized string strDarkEventExpiredTitle;
 var localized string strDarkEventExpiredText;
+var localized string OpenResistanceManagementStr;
+var localized string OpenHavenManagementStr;
 
 var config int LISTENER_PRIORITY;
 
@@ -61,6 +63,7 @@ static function CHEventListenerTemplate CreateMiscellaneousListeners()
 	Template.AddCHEvent('PreDarkEventDeactivated', ShowDarkEventDeactivatedNotification, ELD_OnStateSubmitted, GetListenerPriority());
 	Template.AddCHEvent('Geoscape_ResInfoButtonVisible', ShowOrHideResistanceOrdersButton, ELD_Immediate, GetListenerPriority());
 	Template.AddCHEvent('ContinentBonusActivated', HandleContinentBonusActivation, ELD_OnStateSubmitted, GetListenerPriority());
+	Template.AddCHEvent('StrategyMap_NavHelpUpdated', DisplayResistanceAndHavenManagementNavHelp, ELD_Immediate, GetListenerPriority());
 
 	//Added for fix to issue #100
 	Template.AddCHEvent('OverrideCurrentDoom', OverrideCurrentDoom, ELD_Immediate, GetListenerPriority());
@@ -1063,6 +1066,46 @@ static function EventListenerReturn HandleContinentBonusActivation(
 	// that triggered it. This does require other listeners to come after us
 	// otherwise they'll think the continent bonus is active.
 	return ELR_InterruptListeners;
+}
+
+// KDM : When on the strategy map, and using a controller either :
+// 1.] Display an 'Open Haven Management' NavHelp item if a haven is currently selected.
+// 2.] Display an 'Open Resistance Management' NavHelp item if a haven is not currently selected.
+static function EventListenerReturn DisplayResistanceAndHavenManagementNavHelp(
+	Object EventData,
+	Object EventSource,
+	XComGameState GameState,
+	Name EventID,
+	Object CallbackData)
+{
+	local UINavigationHelp NavigationHelp;
+	local UIStrategyMap StrategyMap;
+	local UIStrategyMapItem_Region_LW SelectedRegionMapItem;
+
+	NavigationHelp = UINavigationHelp(EventData);
+	StrategyMap = UIStrategyMap(EventSource);
+	if (!`ISCONTROLLERACTIVE || NavigationHelp == none || StrategyMap == none)
+	{
+		return ELR_NoInterrupt;
+	}
+
+	SelectedRegionMapItem = UIStrategyMapItem_Region_LW(StrategyMap.SelectedMapItem);
+	// KDM : If a contacted haven is currently selected on the strategy map then add an
+	// 'Open Haven Management' NavHelp item.
+	if (SelectedRegionMapItem != none && SelectedRegionMapItem.OutpostButton.bIsVisible)
+	{
+		NavigationHelp.AddLeftHelp(default.OpenHavenManagementStr, class'UIUtilities_Input'.static.GetGamepadIconPrefix() $
+			class'UIUtilities_Input'.const.ICON_X_SQUARE);
+	}
+	// KDM : If a contacted haven is not currently selected on the strategy map then add an
+	// 'Open Resistance Management' NavHelp item.
+	else
+	{
+		NavigationHelp.AddLeftHelp(default.OpenResistanceManagementStr, class'UIUtilities_Input'.static.GetGamepadIconPrefix() $
+			class'UIUtilities_Input'.const.ICON_X_SQUARE);
+	}
+
+	return ELR_NoInterrupt;
 }
 
 static function EventListenerReturn AllowOutOfContinentStartingRegionLinks(
