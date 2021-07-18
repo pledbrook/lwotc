@@ -1375,13 +1375,13 @@ FriendlyNamePlural="Autochargeurs d'élite"
 FriendlyName="Gilet nanométrique"
 FriendlyNamePlural="Gilets nanométriques"
 BriefSummary="Sous-protection dérivée d'une armure d'ADVENT, ce gilet peut être porté sous toutes les armures d'XCOM pour améliorer la santé du porteur de <ABILITY:NANOFIBER_HEALTH_BONUS_LW/> PV et réduire les chances que les ennemis lui infligent un coup critique de -<ABILITY:NANOFIBER_CRITDEF_BONUS_LW/>."
-TacticalText="<Bullet/> Octroie <ABILITY:NANOFIBER_HEALTH_BONUS_LW/> PV supplémentaires.\n<Bullet/> Les ennemis ont -<ABILITY:NANOFIBER_CRITDEF_BONUS_LW/> chances de coup critique contre vous.\n<Bullet/> Vous ne pouvez vous équiper que d'un blindage et d'un gilet à la fois."
+TacticalText="<Bullet/> Octroie <ABILITY:NANOFIBER_HEALTH_BONUS_LW/>PV supplémentaires.\n<Bullet/> Les ennemis ont -<ABILITY:NANOFIBER_CRITDEF_BONUS_LW/> chances de coup critique contre vous.\n<Bullet/> Vous ne pouvez vous équiper que d'un blindage et d'un gilet à la fois."
 
 [PlatedVest X2EquipmentTemplate]
 FriendlyName="Gilet tactique"
 FriendlyNamePlural="Gilets tactiques"
 BriefSummary="Shen a renforcé le gilet nanométrique traditionnel avec une épaisseur protectrice de blindage qui réduit les dégâts des attaques adverses."
-TacticalText="<Bullet/> Confère 3 PV au soldat.\n<Bullet/> Donne 1 armure.\n<Bullet/> Vous ne pouvez vous équiper que d'un blindage et d'un gilet à la fois."
+TacticalText="<Bullet/> Confère 3PV au soldat.\n<Bullet/> Donne 1 point(s) armure.\n<Bullet/> Vous ne pouvez vous équiper que d'un blindage et d'un gilet à la fois."
 
 [HazmatVest X2EquipmentTemplate]
 FriendlyName="Gilet de protection"
@@ -1392,7 +1392,7 @@ TacticalText="<Bullet/> Améliore la santé du soldat de 3.\n<Bullet/> Immunise 
 [Hellweave X2EquipmentTemplate]
 FriendlyName="Gilet cuirasse infernale"
 FriendlyNamePlural="Gilet cuirasse infernale"
-BriefSummary="La cuirasse infernale offre non seulement 6 PV bonus à vos soldats, mais renvoie les dégâts de toutes les attaques au corps à corps avec <Ability:HELLWEAVEPROCCHANCE/>% de chances d'enflammer les ennemis."
+BriefSummary="La cuirasse infernale offre non seulement 6PV bonus à vos soldats, mais renvoie les dégâts de toutes les attaques au corps à corps avec <Ability:HELLWEAVEPROCCHANCE/>% de chances d'enflammer les ennemis."
 TacticalText="<Bullet/> Non seulement elle inflige des dégâts directs sur les attaquants au corps à corps, mais la cuirasse infernale a une chance de les enflammer, avec les effets de neutralisation correspondants.\n<Bullet/> Elle confère aussi 6 PV bonus.<br/><Bullet/> Vous ne pouvez vous équiper que d'un blindage et d'un gilet à la fois."
 
 ;;; New
@@ -5081,9 +5081,9 @@ LocPromotionPopupText="<Bullet/> Chaque tir a une chance individuelle de toucher
 
 ; LWOTC translated (2)
 [SoulSteal X2AbilityTemplate]
-LocLongDescription="Le Feu spirituel convertit les dégâts infligés en PV (si l'agent psi est blessé) et octroie également des points de bouclier bonus pour 3 tours. Le temps de rechargement du feu sprituel augmente de 1 tour."
-LocHelpText="Le Feu spirituel convertit les dégâts infligés en PV (si l'agent psi est blessé) et octroie également des points de bouclier bonus. Le temps de rechargement du feu sprituel augmente de 1 tour."
-LocPromotionPopupText="<Bullet/> La capacité Drain spirituel soigne les PV perdus et octroie à l'agent psi 3/4/6 points de bouclier bonus pour 3 tours.<br/><Bullet/> Un agent psi ne peut pas gagner plus de 15 points de bouclier de cette façon.<br/><Bullet/> Le temps de rechargement du Feu sprituel augmente de 1 tour."
+LocLongDescription="Le Feu spirituel convertit les dégâts infligés en PV (si l'agent psi est blessé) et octroie également des points de bouclier bonus pour 3 tour(s). Le temps de rechargement du feu sprituel augmente de 1 tour(s)."
+LocHelpText="Le Feu spirituel convertit les dégâts infligés en PV (si l'agent psi est blessé) et octroie également des points de bouclier bonus. Le temps de rechargement du Feu sprituel augmente de 1 tour(s)."
+LocPromotionPopupText="<Bullet/> La capacité Drain spirituel soigne les PV perdus et octroie à l'agent psi 3/4/6 points de bouclier bonus pour 3 tour(s).<br/><Bullet/> Un agent psi ne peut pas gagner plus de 15 points de bouclier de cette façon.<br/><Bullet/> Le temps de rechargement du Feu sprituel augmente de 1 tour(s)."
 ; End translated (2)
 
 ; LWOTC translated
@@ -5313,9 +5313,9 @@ LocPromotionPopupText="<Bullet/> Une forme supérieure de Vigilance. Plutôt que
 
 [Pillar X2AbilityTemplate]
 ; LWOTC translated (2)
-LocLongDescription="Invoque un pilier d'énergie psionique qui est considéré comme un abri total. Action gratuite, qui ne coûte aucun point concentration. Cette capacité se prolonge pendant un nombre de tours égal à la concentration du Templier lorsqu'il a invoqué le pilier."
-LocHelpText="Invoque un pilier d'énergie psionique qui est considéré comme un abri total. Action gratuite, qui ne coûte aucun point concentration. Cette capacité se prolonge pendant un nombre de tours égal à la concentration du Templier lorsqu'il a invoqué le pilier."
-LocPromotionPopupText="<Bullet/> Cette capacité se prolonge pendant un nombre de tours égal à la concentration du Templier lorsqu'il a invoqué le pilier.<br/><Bullet/> Action gratuite. Peut être activé après l'utilsiation de la capacité Taillade.<br/><Bullet/> Temps de rechargement de <Ability:SelfCooldown_LW/> tour(s).<br/>"
+LocLongDescription="Invoque un pilier d'énergie psionique qui est considéré comme un abri total. Action gratuite, qui ne coûte aucun point concentration. Cette capacité se prolonge pendant un nombre de tours égal à la concentration du Templier lorsqu'il a invoqué le pilier. Peut être activé après l'utilisation de la capacité Taillade."
+LocHelpText="Invoque un pilier d'énergie psionique qui est considéré comme un abri total. Action gratuite, qui ne coûte aucun point concentration. Cette capacité se prolonge pendant un nombre de tours égal à la concentration du Templier lorsqu'il a invoqué le pilier. Peut être activé après l'utilisation de la capacité Taillade."
+LocPromotionPopupText="<Bullet/> Cette capacité se prolonge pendant un nombre de tours égal à la concentration du Templier lorsqu'il a invoqué le pilier.<br/><Bullet/> Action gratuite. Peut être activé après l'utilisation de la capacité Taillade.<br/><Bullet/> Temps de rechargement de <Ability:SelfCooldown_LW/> tour(s).<br/>"
 ; End translated (2)
 
 [StunStrike X2AbilityTemplate]
@@ -5463,13 +5463,13 @@ LocPromotionPopupText="<Bullet/> Le Fantôme débute avec un niveau de concentra
 ; LWOTC translated #2 - Shard and Caster gauntlet tactical text and the brief
 ; summaries for the caster gauntlets have been updated.
 [ShardGauntlet_CV X2PairedWeaponTemplate]
-TacticalText="<Bullet/> Octroie la capacité Flèche, qui inflige des dégâts supplémentaires en fonction de la distance qui sépare le Templier de sa cible.<br/><Bullet/> Les Templiers peuvent \"sprinter\" en utilisant leurs deux actions tout en étant capables de lancer une attaque sur un ennemi adjacent.\n<Bullet/> Pesez bien le pour et le contre avant d'attaquer un ennemi au corps à corps!\n<Bullet/> Tâchez de repérer les opportunités d'améliorer l'efficacité de nos armes blanches ; l'ennemi aura parfois accès à des technologies bien meilleures que les nôtres."
+TacticalText="<Bullet/> Les Templiers peuvent \"sprinter\" en utilisant leurs deux actions tout en étant capables de lancer une attaque sur un ennemi adjacent.\n<Bullet/> Pesez bien le pour et le contre avant d'attaquer un ennemi au corps à corps!\n<Bullet/> Tâchez de repérer les opportunités d'améliorer l'efficacité de nos armes blanches ; l'ennemi aura parfois accès à des technologies bien meilleures que les nôtres."
 
 [ShardGauntlet_MG X2PairedWeaponTemplate]
-TacticalText="<Bullet/> Octroie la capacité Flèche, qui inflige des dégâts supplémentaires en fonction de la distance qui sépare le Templier de sa cible.<br/><Bullet/> Les Templiers peuvent \"sprinter\" en utilisant leurs deux actions tout en étant capables de lancer une attaque sur un ennemi adjacent.\n<Bullet/> Pesez bien le pour et le contre avant d'attaquer un ennemi au corps à corps!\n<Bullet/> Tâchez de repérer les opportunités d'améliorer l'efficacité de nos armes blanches ; l'ennemi aura parfois accès à des technologies bien meilleures que les nôtres."
+TacticalText="<Bullet/> Les Templiers peuvent \"sprinter\" en utilisant leurs deux actions tout en étant capables de lancer une attaque sur un ennemi adjacent.\n<Bullet/> Pesez bien le pour et le contre avant d'attaquer un ennemi au corps à corps!\n<Bullet/> Tâchez de repérer les opportunités d'améliorer l'efficacité de nos armes blanches ; l'ennemi aura parfois accès à des technologies bien meilleures que les nôtres."
 
 [ShardGauntlet_BM X2PairedWeaponTemplate]
-TacticalText="<Bullet/> Octroie la capacité Flèche, qui inflige des dégâts supplémentaires en fonction de la distance qui sépare le Templier de sa cible.<br/><Bullet/> Les Templiers peuvent \"sprinter\" en utilisant leurs deux actions tout en étant capables de lancer une attaque sur un ennemi adjacent.\n<Bullet/> Pesez bien le pour et le contre avant d'attaquer un ennemi au corps à corps!\n<Bullet/> Tâchez de repérer les opportunités d'améliorer l'efficacité de nos armes blanches ; l'ennemi aura parfois accès à des technologies bien meilleures que les nôtres."
+TacticalText="<Bullet/> Les Templiers peuvent \"sprinter\" en utilisant leurs deux actions tout en étant capables de lancer une attaque sur un ennemi adjacent.\n<Bullet/> Pesez bien le pour et le contre avant d'attaquer un ennemi au corps à corps!\n<Bullet/> Tâchez de repérer les opportunités d'améliorer l'efficacité de nos armes blanches ; l'ennemi aura parfois accès à des technologies bien meilleures que les nôtres."
 
 [CasterGauntlet_CV X2PairedWeaponTemplate]
 FriendlyName="Gantelets de l'invocateur"
@@ -6676,16 +6676,16 @@ LocHelpText="Les unités situées dans la zone d'effet de la fumée ne sont jama
 [ImpactCompensation_LW X2AbilityTemplate]
 LocFriendlyName="Compensation d'impact"
 LocFlyOverText="Compensation d'impact"
-LocLongDescription="Après avoir subi des dégâts, gagnez une réduction des dégâts de <Ability:IMPACT_COMPENSATION_PCT_DR>% jusqu'à la fin de votre tour."
-LocHelpText="AAprès avoir subi des dégâts, gagnez une réduction des dégâts de <Ability:IMPACT_COMPENSATION_PCT_DR>% jusqu'à la fin de votre tour."
-LocPromotionPopupText="Après avoir subi des dégâts, gagnez une réduction des dégâts de <Ability:IMPACT_COMPENSATION_PCT_DR>% jusqu'à la fin de votre tour."
+LocLongDescription="Après avoir subi des dégâts, gagnez une réduction des dégâts cumulative de <Ability:IMPACT_COMPENSATION_PCT_DR>% jusqu'à la fin de votre tour (jusqu'à un maximum de <Ability:IMPACT_COMPENSATION_MAX_STACKS/>). Cet effet est réinitialisé à 0 au début de votre tour."
+LocHelpText="Après avoir subi des dégâts, gagnez une réduction des dégâts cumulative de <Ability:IMPACT_COMPENSATION_PCT_DR>% jusqu'à la fin de votre tour (jusqu'à un maximum de <Ability:IMPACT_COMPENSATION_MAX_STACKS/>). Cet effet est réinitialisé à 0 au début de votre tour."
+LocPromotionPopupText="Après avoir subi des dégâts, gagnez une réduction des dégâts cumulative de <Ability:IMPACT_COMPENSATION_PCT_DR>% jusqu'à la fin de votre tour (jusqu'à un maximum de <Ability:IMPACT_COMPENSATION_MAX_STACKS/>). Cet effet est réinitialisé à 0 au début de votre tour."
 
 [ImpactCompensationPassive_LW X2AbilityTemplate]
 LocFriendlyName="Compensation d'impact"
 LocFlyOverText="Compensation d'impact"
-LocLongDescription="Après avoir subi des dégâts, gagnez une réduction des dégâts de <Ability:IMPACT_COMPENSATION_PCT_DR>% jusqu'à la fin de votre tour."
-LocHelpText="AAprès avoir subi des dégâts, gagnez une réduction des dégâts de <Ability:IMPACT_COMPENSATION_PCT_DR>% jusqu'à la fin de votre tour."
-LocPromotionPopupText="Après avoir subi des dégâts, gagnez une réduction des dégâts de <Ability:IMPACT_COMPENSATION_PCT_DR>% jusqu'à la fin de votre tour."
+LocLongDescription="Après avoir subi des dégâts, gagnez une réduction des dégâts cumulative de <Ability:IMPACT_COMPENSATION_PCT_DR>% jusqu'à la fin de votre tour (jusqu'à un maximum de <Ability:IMPACT_COMPENSATION_MAX_STACKS/>). Cet effet est réinitialisé à 0 au début de votre tour."
+LocHelpText="Après avoir subi des dégâts, gagnez une réduction des dégâts cumulative de <Ability:IMPACT_COMPENSATION_PCT_DR>% jusqu'à la fin de votre tour (jusqu'à un maximum de <Ability:IMPACT_COMPENSATION_MAX_STACKS/>). Cet effet est réinitialisé à 0 au début de votre tour."
+LocPromotionPopupText="Après avoir subi des dégâts, gagnez une réduction des dégâts cumulative de <Ability:IMPACT_COMPENSATION_PCT_DR>% jusqu'à la fin de votre tour (jusqu'à un maximum de <Ability:IMPACT_COMPENSATION_MAX_STACKS/>). Cet effet est réinitialisé à 0 au début de votre tour."
 
 [MovingTarget_LW X2AbilityTemplate]
 LocFriendlyName="Cible mouvante"
@@ -6707,8 +6707,10 @@ KnowledgeGainFirstBullet[eChosenKnowledge_Raider]="L'Élu peut lancer un assaut 
 KnowledgeGainSecondBullet[eChosenKnowledge_Sentinel]="Chosen peut mener une opération supplémentaire!"
 
 
-[X2Ability_LW_ChosenAbilities]
-ShieldedStatBuffsLocDescription="Bonus en visée, en chances de coup critique, en volonté et en Force psi."
+; LWOTC Needs Translation (2)
+; Remove this section
+; [X2Ability_LW_ChosenAbilities]
+; End Translation (2)
 
 [Magnum_LW X2AbilityTemplate]
 LocFriendlyName="Pistolero"
@@ -6832,31 +6834,31 @@ LocPromotionPopupText="<Bullet/> L'Inversion a un temps de rechargement de <Abil
 
 [OneForAll X2AbilityTemplate]
 LocFriendlyName="Dôme de fer"
-LocHelpText="Procure un abri total aux unités alliées, ainsi qu'un bonus de +30 en défense. Cet effet se dissipe lorsque vous vous déplacez ou que vous attaquez. Octroie des PV bonus durant toute la durée de l'effet (le nombre de PV obtenus dépend du bouclier utilisé)."
-LocLongDescription="Procure un abri total aux unités alliées, ainsi qu'un bonus de +30 en défense. Cet effet se dissipe lorsque vous vous déplacez ou que vous attaquez. Octroie des PV bonus durant toute la durée de l'effet (le nombre de PV obtenus dépend du bouclier utilisé)."
+LocHelpText="Procure un abri total aux unités alliées adjacentes, ainsi qu'un bonus de +30 en défense. Cet effet se dissipe lorsque vous vous déplacez ou que vous attaquez. Octroie des PV bonus durant toute la durée de l'effet (le nombre de PV obtenus dépend du bouclier utilisé)."
+LocLongDescription="Procure un abri total aux unités alliées adjacentes, ainsi qu'un bonus de +30 en défense. Cet effet se dissipe lorsque vous vous déplacez ou que vous attaquez. Octroie des PV bonus durant toute la durée de l'effet (le nombre de PV obtenus dépend du bouclier utilisé)."
 LocFlyOverText="Dôme de fer"
 
 
 [GreaterPadding_CV X2AbilityTemplate]
 LocFriendlyName="Carapace"
 LocFlyOverText="Carapace"
-LocLongDescription="Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_CV/> PV. Cette capacité n'a aucun effet si le soldat est mis hors-combat durant la mission."
-LocHelpText="Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_CV/> PV. Cette capacité n'a aucun effet si le soldat est mis hors-combat durant la mission."
-LocPromotionPopupText="<Bullet/> Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_CV/> PV. Cette capacité n'a aucun effet sur les soldats qui ont été éliminés, mis hors-combat ou stabilisés durant la mission.<br/>"
+LocLongDescription="Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_CV/>PV. Cette capacité n'a aucun effet si le soldat est mis hors-combat durant la mission."
+LocHelpText="Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_CV/>PV. Cette capacité n'a aucun effet si le soldat est mis hors-combat durant la mission."
+LocPromotionPopupText="<Bullet/> Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_CV/>PV. Cette capacité n'a aucun effet sur les soldats qui ont été éliminés, mis hors-combat ou stabilisés durant la mission.<br/>"
 
 [GreaterPadding_MG X2AbilityTemplate]
 LocFriendlyName="Carapace"
 LocFlyOverText="Carapace"
-LocLongDescription="Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_MG/> PV. Cette capacité n'a aucun effet si le soldat est mis hors-combat durant la mission."
-LocHelpText="Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_MG/> PV. Cette capacité n'a aucun effet si le soldat est mis hors-combat durant la mission."
-LocPromotionPopupText="<Bullet/> Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_MG/> PV. Cette capacité n'a aucun effet sur les soldats qui ont été éliminés, mis hors-combat ou stabilisés durant la mission.<br/>"
+LocLongDescription="Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_MG/>PV. Cette capacité n'a aucun effet si le soldat est mis hors-combat durant la mission."
+LocHelpText="Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_MG/>PV. Cette capacité n'a aucun effet si le soldat est mis hors-combat durant la mission."
+LocPromotionPopupText="<Bullet/> Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_MG/>PV. Cette capacité n'a aucun effet sur les soldats qui ont été éliminés, mis hors-combat ou stabilisés durant la mission.<br/>"
 
 [GreaterPadding_BM X2AbilityTemplate]
 LocFriendlyName="Carapace"
 LocFlyOverText="Carapace"
-LocLongDescription="Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_BM/> PV. Cette capacité n'a aucun effet si le soldat est mis hors-combat durant la mission."
-LocHelpText="Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_BM/> PV. Cette capacité n'a aucun effet si le soldat est mis hors-combat durant la mission."
-LocPromotionPopupText="<Bullet/> Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_BM/> PV. Cette capacité n'a aucun effet sur les soldats qui ont été éliminés, mis hors-combat ou stabilisés durant la mission.<br/>"
+LocLongDescription="Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_BM/>PV. Cette capacité n'a aucun effet si le soldat est mis hors-combat durant la mission."
+LocHelpText="Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_BM/>PV. Cette capacité n'a aucun effet si le soldat est mis hors-combat durant la mission."
+LocPromotionPopupText="<Bullet/> Réduit le temps de guérison de ce soldat de <Ability:GREATER_PADDING_BM/>PV. Cette capacité n'a aucun effet sur les soldats qui ont été éliminés, mis hors-combat ou stabilisés durant la mission.<br/>"
 
 [Indomitable X2AbilityTemplate]
 LocFriendlyName="Indomptable"

@@ -79,11 +79,11 @@ LocFriendlyName="Transe du vide"
 ; LWOTC translated (2)
 LocFlyoverText="Transe du vide!"
 ; End translated (2)
-LocLongDescription="Augmente massivement votre mobilité, votre esquive et les dégâts de Taillade. Action gratuite. Nécessite d'avoir au moins 3 niveaux de concentration pour être activé et consomme tous les points de concentration du Templier."
-LocHelpText="Augmente massivement votre mobilité, votre esquive et les dégâts de Taillade. Action gratuite. Nécessite d'avoir au moins 3 niveaux de concentration pour être activé et consomme tous les points de concentration du Templier."
-; LWOTC translated (2)
-LocPromotionPopupText="<Bullet/> Une action gratuite qui augmente significativement la puissance du Templier durant 2 tours.<br/><Bullet/> Augmente les dégâts de Taillade de +<Ability:ApotheosisDamageMultiplier/>% pour chaque niveau de concentration au-delà de 2.<br/><Bullet/> Augmente l'esquive de +<Ability:ApotheosisDodgeBonus/>.<br/><Bullet/> Augmente la mobilité de +<Ability:ApotheosisMobilityBonus/> pour chaque niveau de concentration au-delà de 2.<br/><Bullet/> Nécessite d'avoir au moins 3 niveaux de concentration pour être activé. Son activation consomme tous les points de concentration du Templier.<br/><Bullet/> Vous ne gagnez aucun point de concentration lorsque vous éliminez un ennemi avec Taillade tant que cette capacité est active.<br/>"
-; End translated (2)
+LocLongDescription="Action gratuite, qui augmente massivement votre mobilité, votre esquive et les dégâts que vous infligez durant 2 tours. Nécessite d'avoir au moins 3 niveaux de concentration pour être activé et consomme tous les points de concentration du Templier."
+LocHelpText="Action gratuite, qui augmente massivement votre mobilité, votre esquive et les dégâts que vous infligez durant 2 tours. Nécessite d'avoir au moins 3 niveaux de concentration pour être activé et consomme tous les points de concentration du Templier."
+; LWOTC translated (3)
+LocPromotionPopupText="<Bullet/> Action gratuite, qui augmente massivement votre mobilité, votre esquive et les dégâts que vous infligez durant 2 tours. Nécessite d'avoir au moins 3 niveaux de concentration pour être activé et consomme tous les points de concentration du Templier.<br/><Bullet/> Augmente les dégâts que vous infligez de +<Ability:ApotheosisDamageMultiplier/>% pour chaque niveau de concentration au-delà de 2.<br/><Bullet/> Augmente l'esquive de +<Ability:ApotheosisDodgeBonus/> pour chaque niveau de concentration au-delà de 2.<br/><Bullet/> Augmente la mobilité de +<Ability:ApotheosisMobilityBonus/> pour chaque niveau de concentration au-delà de 2.<br/><Bullet/> Nécessite d'avoir au moins 3 niveaux de concentration pour être activé. Son activation consomme tous les points de concentration du Templier.<br/>"
+; End translated (3)
 ; End translated
 
 ; LWOTC translated

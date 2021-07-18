@@ -267,6 +267,12 @@ AblativeHPLabel="PV bonus"
 [X2Ability_LW_TechnicalAbilitySet]
 strMaxScatter="\nDiffusion max (cases):"
 
+; LWOTC translated
+[X2Ability_LW_ChosenAbilities]
+ShieldedStatBuffsLocDescription="Bonus en visée, en chances de crtiques, en volonté et en force psi."
+ImpactCompensationBuffDescription="Réduit tous les dégâts subis de <Ability:IMPACT_COMPENSATION_CURRENT_DR/>%"
+; End translated
+
 [XComGameState_LWListenerManager]
 ResistanceHQBodyText="Accès aux informations des refuges de la résistance"
 

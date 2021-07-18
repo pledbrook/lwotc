@@ -274,7 +274,7 @@ LocFlyOverText="Arme de tranchée"
 ; LWOTC translated
 LocLongDescription="Tir spécial pour les armes principales de type fusil à pompe: un tir de zone, de forme conique et à courte portée, qui ne peut pas infliger de coup critique. Temps de rechargement de <Ability:SelfCooldown_LW/> tour(s)."
 LocHelpText="Tir spécial pour les fusils à pompe équipés en arme principale: attaque à courte portée dans un cône de visée contre les cibles à proximité. Temps de rechargement de <Ability:SelfCooldown_LW/> tour(s)."
-LocPromotionPopupText="<Bullet/> Tir spécial pour les armes principales de type fusil à pompe: un tir de zone conique à courte portée.<br/><Bullet/> Temps de rechargement de <Ability:SelfCooldown_LW/> tour(s). Consomme <Ability:SelfAmmoCost/> munitions.<br/><Bullet/> Capacité incompatible avec les autres types d'armes principales.<br/><Bullet/> Ce tir ne transperce pas les couvertures complètes, il est donc souvent plus approprié dans les situations de contournement.<br/><Bullet/> Les alliés présents dans la zone d'effet peuvent subir des dégâts.<br/>"
+LocPromotionPopupText="<Bullet/> Tir spécial pour les armes principales de type fusil à pompe: un tir de zone conique à courte portée.<br/><Bullet/> Temps de rechargement de <Ability:SelfCooldown_LW/> tour(s). Consomme <Ability:SelfAmmoCost/> munition(s).<br/><Bullet/> Capacité incompatible avec les autres types d'armes principales.<br/><Bullet/> Ce tir ne transperce pas les couvertures complètes, il est donc souvent plus approprié dans les situations de contournement.<br/><Bullet/> Les alliés présents dans la zone d'effet peuvent subir des dégâts.<br/>"
 ; End translated
 
 ; LWOTC translated (2)
@@ -579,8 +579,8 @@ LocPromotionPopupText="<Bullet/> Octroie une grenade fumigène gratuite dans vot
 [Savior X2AbilityTemplate]
 LocFriendlyName="Sauveur"
 LocFlyOverText="Sauveur"
-LocLongDescription="Les capacités de soin restaurent <Ability:SAVIOR_BONUS_HEAL/> PV supplémentaires."
-LocHelpText="Les capacités de soin restaurent <Ability:SAVIOR_BONUS_HEAL/> PV supplémentaires."
+LocLongDescription="Les capacités de soins restaurent <Ability:SAVIOR_BONUS_HEAL/>PV supplémentaires."
+LocHelpText="Les capacités de soins restaurent <Ability:SAVIOR_BONUS_HEAL/>PV supplémentaires."
 LocPromotionPopupText="<Bullet/> L'effet s'applique aux soins du GREMLIN, aux médikits et aux capacités de régénération.<br/>"
 
 [DenseSmoke X2AbilityTemplate]
