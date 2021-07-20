@@ -232,6 +232,21 @@ simulated function GoToResistanceManagement(optional StateObjectReference Facili
 	}
 }
 
+// Rai - Added function to enable entering the haven management screen from geoscape directly
+static function OpenResistanceManagementScreen(optional StateObjectReference ActionToFocus)
+{
+	local UIResistanceManagement_LW TempScreen;
+	local XComHQPresentationLayer HQPres;
+
+	HQPres = `HQPRES;
+	if (HQPres.ScreenStack.GetFirstInstanceOf(class'UIResistanceManagement_LW') != none) return;
+
+	TempScreen = HQPres.Spawn(class'UIResistanceManagement_LW', HQPres);
+	//TempScreen.ActionToShowOnInitRef = ActionToFocus;
+	HQPres.ScreenStack.Push(TempScreen);
+
+}
+
 function bool IsUnitAHavenLiaison(StateObjectReference UnitRef)
 {
 	local XComGameState_LWOutpost Outpost;
