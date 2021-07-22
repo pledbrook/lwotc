@@ -664,12 +664,12 @@ LocPromotionPopupText="<Bullet/> Medium-range, cone-based shotgun attack.<br/><B
 
 [ChainLightning X2AbilityTemplate]
 LocFriendlyName="Chain Lightning"
-; LWOTC Needs Translation (2)
-LocLongDescription="Fire your Arc Thrower at every visible enemy who is capable of being stunned, with a <Ability:CHAIN_LIGHTNING_AIM_MOD_LW/> penalty to aim."
-LocHelpText="Fire your Arc Thrower at every visible enemy who is capable of being stunned, with a <Ability:CHAIN_LIGHTNING_AIM_MOD_LW/> penalty to aim."
+; LWOTC Needs Translation (3)
+LocLongDescription="An Arc Thrower Attack that jumps to other targets within 6 tiles, up to 4 times."
+LocHelpText="An Arc Thrower Attack that jumps to other targets within 6 tiles, up to 4 times."
 LocFlyOverText="Chain Lightning"
-LocPromotionPopupText="<Bullet/> Fire your Arc Thrower at every visible enemy who is capable of being stunned with a <Ability:CHAIN_LIGHTNING_AIM_MOD_LW/> penalty to aim.<br/><Bullet/> Requires one action and ends your turn.<br/><Bullet/> Chain Lightning has a <Ability:SelfCooldown_LW/> turn cooldown.<br/><Bullet/> Cannot be used from concealment."
-; End Translation (2)
+LocPromotionPopupText="An Arc Thrower Attack that jumps to other targets within 6 tiles, up to 4 times.<br/><Bullet/> Requires one action and ends your turn.<br/><Bullet/> Chain Lightning has a <Ability:SelfCooldown_LW/> turn cooldown.<br/><Bullet/> Cannot be used from concealment."
+; End Translation (3)
 
 [Leadership X2AbilityTemplate]
 LocFriendlyName="Leadership"

@@ -20,6 +20,7 @@ var config int STREET_SWEEPER2_UNARMORED_DAMAGE_BONUS;
 var config int CHAIN_LIGHTNING_COOLDOWN;
 var config int CHAIN_LIGHTNING_MIN_ACTION_REQ;
 var config int CHAIN_LIGHTNING_AIM_MOD;
+var config int CHAIN_LIGHTNING_TARGETS;
 
 
 static function array<X2DataTemplate> CreateTemplates()
@@ -36,6 +37,9 @@ static function array<X2DataTemplate> CreateTemplates()
 	Templates.AddItem(CreateStreetSweeper2Ability());
 	Templates.AddItem(CreateStreetSweeperBonusDamageAbility());
 	Templates.AddItem(CreateChainLightningAbility());
+	//Focus ability for the Chain lightning ability
+	Templates.AddItem(CreateCLFocus('CLFocus',default.CHAIN_LIGHTNING_TARGETS));
+	
 	return Templates;
 }
 
@@ -533,7 +537,7 @@ static function X2AbilityTemplate CreateStreetSweeperBonusDamageAbility()
 	
 	return Template;
 }
-
+/*
 static function X2AbilityTemplate CreateChainLightningAbility()
 {
 	local X2AbilityTemplate					Template;	
@@ -632,6 +636,157 @@ static function X2AbilityTemplate CreateChainLightningAbility()
 	
 	Template.ChosenActivationIncreasePerUse = class'X2AbilityTemplateManager'.default.StandardShotChosenActivationIncreasePerUse;
 	Template.LostSpawnIncreasePerUse = class'X2AbilityTemplateManager'.default.StandardShotLostSpawnIncreasePerUse;
+
+	return Template;
+}
+*/
+
+
+static function X2AbilityTemplate CreateChainLightningAbility()
+{
+	local X2AbilityTemplate					Template;	
+	local X2AbilityCost_ActionPoints		ActionPointCost;
+	local X2Condition_UnitProperty			UnitPropertyCondition, UnitPropertyCondition2;
+	local X2Effect_ArcthrowerStunned		StunnedEffect;
+	local X2AbilityToHitCalc_StandardAim    ToHitCalc;
+	local X2AbilityCooldown					Cooldown;	
+	local X2Condition_UnitType				ImmuneUnitCondition;
+	local X2Condition_UnitEffects			SuppressedCondition;
+	local X2Effect_ApplyWeaponDamage		DamageEffect;
+	//local X2Effect_RemoveEffects			CleanUpEffect;
+
+	`CREATE_X2ABILITY_TEMPLATE(Template, 'ChainLightning');
+	Template.ShotHUDPriority = class'UIUtilities_Tactical'.const.CLASS_COLONEL_PRIORITY;
+	Template.AbilitySourceName = 'eAbilitySource_Perk';
+	Template.eAbilityIconBehaviorHUD = eAbilityIconBehavior_AlwaysShow;
+	Template.IconImage = "img:///UILibrary_LW_Overhaul.LW_AbilityChainLightning";
+	Template.bCrossClassEligible = false;
+	Template.Hostility = eHostility_Offensive;
+	Template.AbilityTriggers.AddItem(default.PlayerInputTrigger);
+	Template.ActivationSpeech = 'TeslaCannon';
+
+	Template.AbilityShooterConditions.AddItem(default.LivingShooterProperty);
+	Template.AbilityTargetConditions.AddItem(default.LivingTargetUnitOnlyProperty);
+	Template.AbilityTargetConditions.AddItem(default.GameplayVisibilityCondition);
+	
+	Template.AbilityTargetStyle = default.SimpleSingleTarget;
+	Template.AbilityMultiTargetStyle = new class'X2AbilityMultiTarget_Volt';
+	Template.AbilityTriggers.AddItem(default.PlayerInputTrigger);
+	Template.TargetingMethod = class'X2TargetingMethod_Volt';
+
+	Template.AbilityShooterConditions.AddItem(default.LivingShooterProperty);
+	Template.AddShooterEffectExclusions();
+
+	Template.AbilityTargetConditions.AddItem(default.GameplayVisibilityCondition);
+	Template.AbilityTargetConditions.AddItem(default.LivingHostileUnitDisallowMindControlProperty);
+
+
+	//Template.bAllowAmmoEffects = true;
+	Template.bAllowBonusWeaponEffects = true;
+
+	// Can't target dead; Can't target friendlies -- must be enemy organic
+	UnitPropertyCondition = new class'X2Condition_UnitProperty';
+	UnitPropertyCondition.ExcludeRobotic = true;
+	UnitPropertyCondition.ExcludeOrganic = false;
+	UnitPropertyCondition.ExcludeDead = true;
+	UnitPropertyCondition.ExcludeFriendlyToSource = true;
+	UnitPropertyCondition.RequireWithinRange = true;
+	Template.AbilityTargetConditions.AddItem(UnitPropertyCondition);
+	
+	UnitPropertyCondition2=new class'X2Condition_UnitProperty';
+	UnitPropertyCondition2.ExcludeConcealed = true;
+	Template.AbilityShooterConditions.AddItem(UnitPropertyCondition2);
+
+	SuppressedCondition = new class'X2Condition_UnitEffects';
+	SuppressedCondition.AddExcludeEffect(class'X2Effect_Suppression'.default.EffectName, 'AA_UnitIsSuppressed');
+	SuppressedCondition.AddExcludeEffect(class'X2Effect_AreaSuppression'.default.EffectName, 'AA_UnitIsSuppressed');
+	Template.AbilityShooterConditions.AddItem(SuppressedCondition);
+
+	ImmuneUnitCondition = new class'X2Condition_UnitType';
+	ImmuneUnitCondition.ExcludeTypes.AddItem('PsiZombie');
+	ImmuneUnitCondition.ExcludeTypes.AddItem('AdvPsiWitchM2');
+	ImmuneUnitCondition.ExcludeTypes.AddItem('AdvPsiWitchM3');
+	Template.AbilityTargetConditions.AddItem(ImmuneUnitCondition);
+
+
+
+	Cooldown = new class'X2AbilityCooldown';
+	Cooldown.iNumTurns = default.CHAIN_LIGHTNING_COOLDOWN;
+	Template.AbilityCooldown = Cooldown;
+
+	// Action Point
+	ActionPointCost = new class'X2AbilityCost_ActionPoints';
+	ActionPointCost.iNumPoints = default.CHAIN_LIGHTNING_MIN_ACTION_REQ;
+	ActionPointCost.DoNotConsumeAllSoldierAbilities.AddItem('Unlimitedpower_LW');
+	ActionPointCost.bConsumeAllPoints = true;
+	Template.AbilityCosts.AddItem(ActionPointCost);	
+
+	//Stun Effect
+	StunnedEffect = CreateArcthrowerStunnedStatusEffect(100);
+	Template.AddTargetEffect(StunnedEffect);
+	Template.AddMultiTargetEffect(StunnedEffect);
+
+	//CleanUpEffect = CreateStunnedEffectsCleanUpEffect();
+	//Template.AddTargetEffect(CleanUpEffect);
+	DamageEffect = new class'X2Effect_ApplyWeaponDamage';
+	DamageEffect.bIgnoreBaseDamage = true;
+	DamageEffect.DamageTag = 'Volt';
+	DamageEffect.bIgnoreArmor = true;
+	DamageEffect.TargetConditions.AddItem(UnitPropertyCondition);
+	Template.AddTargetEffect(DamageEffect);
+	Template.AddMultiTargetEffect(DamageEffect);
+
+
+	Template.AssociatedPassives.AddItem('Electroshock');
+	Template.AddMultiTargetEffect(ElectroshockDisorientEffect());
+	
+	ToHitCalc = new class'X2AbilityToHitCalc_StandardAim';
+	ToHitCalc.bOnlyMultiHitWithSuccess = false;
+	ToHitCalc.BuiltInHitMod = default.CHAIN_LIGHTNING_AIM_MOD;
+	Template.AbilityToHitCalc = ToHitCalc;
+	Template.AdditionalAbilities.AddItem('CLFocus');
+	
+	Template.ActionFireClass = class'X2Action_Fire_ChainLightning';
+	Template.BuildNewGameStateFn = TypicalAbility_BuildGameState;
+	//Template.BuildVisualizationFn = class'X2Ability_SharpshooterAbilitySet'.static.Faceoff_BuildVisualization;
+	Template.BuildVisualizationFn = TypicalAbility_BuildVisualization;
+	Template.BuildInterruptGameStateFn = TypicalAbility_BuildInterruptGameState;
+	
+	Template.ChosenActivationIncreasePerUse = class'X2AbilityTemplateManager'.default.StandardShotChosenActivationIncreasePerUse;
+	Template.LostSpawnIncreasePerUse = class'X2AbilityTemplateManager'.default.StandardShotLostSpawnIncreasePerUse;
+
+	return Template;
+}
+
+
+static function X2AbilityTemplate CreateCLFocus(name AbilityName, int FocusLevel)
+{
+	local X2AbilityTemplate Template;
+	local X2Effect_ModifyTemplarFocus FocusEffect;
+
+	`CREATE_X2ABILITY_TEMPLATE(Template, AbilityName);
+
+	Template.IconImage = "img:///UILibrary_XPACK_Common.PerkIcons.UIPerk_templarFocus";
+	Template.AbilitySourceName = 'eAbilitySource_Perk';
+	Template.eAbilityIconBehaviorHUD = eAbilityIconBehavior_NeverShow;
+	Template.Hostility = eHostility_Neutral;
+	Template.bIsPassive = true;
+
+	Template.AbilityToHitCalc = default.DeadEye;
+	Template.AbilityTargetStyle = default.SelfTarget;
+	Template.AbilityTriggers.AddItem(default.UnitPostBeginPlayTrigger);
+	Template.AdditionalAbilities.AddItem('SupremeFocus');
+	Template.AdditionalAbilities.AddItem('DeepFocus');
+	Template.AdditionalAbilities.AddItem('AddSuperGigaOmegaFocus');
+	
+	Template.AddTargetEffect(new class'X2Effect_TemplarFocus');
+
+	FocusEffect = new class'X2Effect_ModifyTemplarFocus';
+	FocusEffect.ModifyFocus = FocusLevel;
+	Template.AddTargetEffect(FocusEffect);
+
+	Template.BuildNewGameStateFn = TypicalAbility_BuildGameState;
+	// Note: no visualization on purpose!
 
 	return Template;
 }

@@ -32,6 +32,7 @@ static function array<X2DataTemplate> CreateTemplates()
 	Templates.AddItem(CreateMiscellaneousListeners());
 	Templates.AddItem(CreateDifficultMissionAPListener());
 	Templates.AddItem(CreateVeryDifficultMissionAPListener());
+	Templates.AddItem(CreateUIFocusOverride());
 
 	return Templates;
 }
@@ -1117,6 +1118,47 @@ static protected function EventListenerReturn BindR3ToPlaceDelayedEvacZone(
 
 	// Bind R3 controller button to this LW2/LWOTC ability
 	Tuple.Data[1].n = 'PlaceDelayedEvacZone';
+
+	return ELR_NoInterrupt;
+}
+
+static function CHEventListenerTemplate CreateUIFocusOverride()
+{
+	local CHEventListenerTemplate Template;
+
+	`LWTrace("Registering evac event listeners");
+
+	`CREATE_X2TEMPLATE(class'CHEventListenerTemplate', Template, 'YellowAlertListeners');
+	//Needed because chain lightning uses focus for its targeting now
+	Template.AddCHEvent('OverrideUnitFocusUI', HideFocusOnAssaults, ELD_Immediate, GetListenerPriority());
+
+	Template.RegisterInTactical = true;
+
+	return Template;
+}
+
+
+static protected function EventListenerReturn HideFocusOnAssaults(
+	Object EventData,
+	Object EventSource,
+	XComGameState NewGameState,
+	Name InEventID,
+	Object CallbackData)
+{
+	local XComLWTuple Tuple;
+	local XComGameState_Unit Unit;
+
+
+	Unit = XComGameState_Unit(EventSource);
+	Tuple = XComLWTuple(EventData);
+	if (Tuple == none)
+		return ELR_NoInterrupt;
+
+	if(Unit.GetSoldierClassTemplate() != none && Unit.GetSoldierClassTemplate().DataName == 'LWS_Assault')
+	{
+		// Hide focus on assaults
+		Tuple.Data[0].b = false;
+	}
 
 	return ELR_NoInterrupt;
 }
